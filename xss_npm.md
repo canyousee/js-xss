@@ -1,9 +1,11 @@
 **xss过滤检测**
 ---
 1.概述
+
 根据白名单过滤html，通过防止xss攻击的方式实现漏洞利用检测
 
 2.原理
+
 白名单控制允许的html标签及各标签的属性
 
     var xss=require("xss"');
@@ -62,7 +64,7 @@
 
 ![](xssimage/4.PNG)
 
-(5)分析html代码中的图片列表
+(4)分析html代码中的图片列表
 
 	var source =
   	'<img src="img1">a<img src="img2">b<img src="img3">c<img src="img4">d';
@@ -80,7 +82,7 @@
 	console.log("image list:\n%s", list.join(", "));
 
 ![](xssimage/5.PNG)
-（6)去掉html标签（只保留文本内容）
+（5)去掉html标签（只保留文本内容）
 
 	var source = "<strong>hello</strong><script>alert(/xss/);</script>end";
 	var html = xss(source, {
